@@ -4,8 +4,10 @@
 
 @section('content')
 <div class="mb-4">
-    <a href="{{ route('tasks.index') }}" class="link"><- Go back to the task list!</a>
+    <a href="{{ route('tasks.index') }}" class="link">← Go back to the task list!</a>
 </div>
+
+<p class="mb-4 text-slate-700">category : {{ $task->category }}</p>
 
 <p class="mb-4 text-slate-700">{{ $task->description }}</p>
 
@@ -14,7 +16,7 @@
 
 @endif
 
-<p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} . Updated {{ $task->updated_at->diffForHumans() }}</p>
+<p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} | Updated {{ $task->updated_at->diffForHumans() }}</p>
 
 <p class="mb-4">
     @if($task->completed)

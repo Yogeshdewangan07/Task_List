@@ -18,6 +18,7 @@ class TaskFactory extends Factory
     {
         return [
             'title' => fake()->sentence,
+            'category' => fake()->randomElement(['personal', 'work', 'health and fitness', 'family']),
             'description' => fake()->paragraph,
             'long_description' => fake()->paragraph(7, true),
             'completed' => fake()->boolean,

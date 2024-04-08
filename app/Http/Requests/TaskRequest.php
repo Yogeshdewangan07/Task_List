@@ -23,6 +23,7 @@ class TaskRequest extends FormRequest
     {
         return [
                 'title' => 'required|max:255',
+                'category' => 'required',
                 'description' => 'required',
                 'long_description' => 'required'
         ];

@@ -20,6 +20,20 @@
         </div>
 
         <div class="mb-4">
+            <label for="category">Category</label>
+            <select name="category" id="category" @class(['border-red-500' => $errors->has('category')]) value="{{ $task->category->value ?? old('category')}}">
+                <option value="">Select category</option>
+                <option value="personal">personal</option>
+                <option value="work">work</option>
+                <option value="health and fitness">health and fitness</option>
+                <option value="family">family</option>
+            </select>
+            @error('category')
+                <p class="error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-4">
             <label for="description">Description</label>
             <textarea name="description" id="description" @class(['border-red-500' => $errors->has('description')]) rows="5">{{ $task->description ?? old('description') }}</textarea>
             @error('description')
