@@ -24,6 +24,14 @@
     @endif
 </p>
 
+<p class="mb-4">
+    @if($task->important)
+        <span class="font-medium text-green-500">important</span>
+    @else
+        <span class="font-medium text-red-500">Not important</span>
+    @endif
+</p>
+
 <div class="flex gap-2">
     <a href="{{ route('tasks.edit', ['task' => $task]) }}" class="btn">Edit</a>
 
@@ -32,6 +40,14 @@
         @method('PUT')
         <button type="submit" class="btn">
             Mark as {{ $task->completed ? 'not completed' : 'completed'}}
+        </button>
+    </form>
+
+    <form action="{{ route('tasks.toggle-important', ['task' => $task])}}" method="POST">
+        @csrf
+        @method('PUT')
+        <button type="submit" class="btn">
+            Mark as {{ $task->important ? 'not important' : 'important'}}
         </button>
     </form>
 

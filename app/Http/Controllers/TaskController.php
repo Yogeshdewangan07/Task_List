@@ -43,4 +43,9 @@ class TaskController extends Controller
         return redirect()->back()->with('success', 'Task updated successfully');
     }
 
+    public function tasksToggleImportant(Task $task) {
+        $task->toggleImportant();
+        return redirect()->back()->with('success', 'Task updated successfully');
+    }
+
 }

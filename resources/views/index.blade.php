@@ -16,7 +16,11 @@
 
     @forelse ($tasks as $task)
         <div>
-        <a href="{{ route('tasks.show', ['task' => $task->id]) }}" @class(['line-through' => $task->completed])>{{ $task->title }}</a>
+        <a href="{{ route('tasks.show', ['task' => $task->id]) }}" @class(['line-through' => $task->completed])>{{ $task->title }}
+        </a>
+        @if ($task->important)
+        <span class="font-medium text-red-500"> important</span>
+            @endif
         </div>
     @empty
         <div>There are no tasks!</div>

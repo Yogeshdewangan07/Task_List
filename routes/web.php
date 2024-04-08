@@ -32,6 +32,7 @@ Route::controller(TaskController::class)->group(function(){
         Route::put('/{task}', 'tasksUpdate')->name('tasks.update')->middleware('isLoggedIn');
         Route::delete('/{task}', 'taskDestroy')->name('task.destroy')->middleware('isLoggedIn');
         Route::put('/{task}/toggle-complete', 'tasksToggleComplete')->name('tasks.toggle-complete')->middleware('isLoggedIn');
+        Route::put('/{task}/toggle-important', 'tasksToggleImportant')->name('tasks.toggle-important')->middleware('isLoggedIn');
     });
 });
 

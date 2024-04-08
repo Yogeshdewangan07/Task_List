@@ -14,4 +14,9 @@ class Task extends Model
         $this->completed = !$this->completed;
         $this->save();
     }
+
+    public function toggleImportant() {
+        $this->important = !$this->important;
+        $this->save();
+    }
 }
