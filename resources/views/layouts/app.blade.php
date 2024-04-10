@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Task List</title>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- blade-formatter-disable --}}
     <style type="text/tailwindcss">
@@ -23,7 +22,7 @@
             @apply block uppercase text-slate-700 mb-2
         }
 
-        input, textarea{
+        input, textarea, select{
             @apply shadow-sm appearance-none border w-full py-2 px-3 text-slate-700 leading-tight focus:outline-none
         }
 
@@ -33,22 +32,23 @@
     </style>
     {{-- blade-formatter-enable --}}
 </head>
-<body class="container mx-auto mt-10 mb-10 max-w-lg">
-    <h1 class="mb-4 text-2xl">@yield('title')</h1>
-    <div x-data="{ flash: true }">
+<body>
+    <div class="container mx-auto mt-10 mb-10 max-w-lg">
+        <h1 class="mb-4 text-2xl">@yield('title')</h1>
+
         @if(session()->has('success'))
-            <div x-show="flash" class="relative mb-10 rounded border border-green-400 bg-green-100 px-4 py-3 text-lg text-green-700" role="alert">
-                <strong class="font-bold">Success!</strong>
-                <div>{{ session('success') }}</div>
-                
-                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 cursor-pointer" @click="flash = false">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </span>
+            <div class="flex justify-between bg-green-100 border border-green-400 text-lg text-green-700 px-4 py-3 mb-4 rounded relative alert" role="alert">
+                <div>
+                    <strong class="font-bold">Success!</strong>
+                    <div>{{ session('success') }}</div>
+                </div>
+                <i class="fa-solid fa-xmark fa-xl pt-2 cursor-pointer"></i>
             </div>
         @endif
         @yield('content')
     </div>
+
+        <script src="{{ asset('js/app.js') }}">
+        </script>
 </body>
 </html>

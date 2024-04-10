@@ -60,7 +60,7 @@ class CustomAuthController extends Controller
         if(Session::has('loginId')){
             $data = Registration::where('id', '=', Session::get('loginId'))->first();
         }
-        return view('index', compact('data'));
+        return view('index', ['data' => $data]);
     }
 
     public function logout(){

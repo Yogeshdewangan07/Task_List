@@ -21,7 +21,7 @@
 
         <div class="mb-4">
             <label for="category">Category</label>
-            <select name="category" id="category" @class(['border-red-500' => $errors->has('category')]) value="{{ $task->category->value ?? old('category')}}">
+            <select name="category" id="category" @class(['border-red-500' => $errors->has('category')]) value="{{ $task->category ?? old('category')}}">
                 <option value="">Select category</option>
                 <option value="personal">personal</option>
                 <option value="work">work</option>

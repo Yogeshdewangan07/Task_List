@@ -21,7 +21,7 @@ Route::controller(CustomAuthController::class)->group(function(){
     route::post('/logout', 'logout')->name('logout.user');
 });
 
-Route::view('/tasks/create', 'create')->name('tasks.create');
+Route::view('/tasks/create', 'create')->name('tasks.create')->middleware('isLoggedIn');
 
 Route::controller(TaskController::class)->group(function(){
     Route::prefix('tasks')->group(function(){

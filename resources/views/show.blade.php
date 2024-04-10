@@ -7,13 +7,12 @@
     <a href="{{ route('tasks.index') }}" class="link">← Go back to the task list!</a>
 </div>
 
-<p class="mb-4 text-slate-700">category : {{ $task->category }}</p>
+<p class="mb-4 text-slate-700">Category : {{ $task->category }}</p>
 
 <p class="mb-4 text-slate-700">{{ $task->description }}</p>
 
 @if($task->long_description)
     <p class="mb-4 text-slate-700">{{ $task->long_description }}</p>
-
 @endif
 
 <p class="mb-4 text-sm text-slate-500">Created {{ $task->created_at->diffForHumans() }} | Updated {{ $task->updated_at->diffForHumans() }}</p>
@@ -28,7 +27,7 @@
 
 <p class="mb-4">
     @if($task->important)
-        <span class="font-medium text-green-500">important</span>
+        <span class="font-medium text-green-500">Important</span>
     @else
         <span class="font-medium text-red-500">Not important</span>
     @endif

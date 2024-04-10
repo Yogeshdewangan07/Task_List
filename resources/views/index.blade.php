@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'The list of tasks')
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="flex justify-between items-center p-2 bg-slate-300">
+    <p class="font-medium">Task List</p>
     <form action="{{ route('logout.user') }}" method="post">
         @csrf
         @method('POST')
-        <button>Logout</button>
+        <button class="btn">Logout</button>
     </form>
 </nav>
+
+@section('title', 'The list of tasks')
 
 @section('content')
     <nav class="mb-4">
